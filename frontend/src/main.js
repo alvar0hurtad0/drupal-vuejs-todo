@@ -3,7 +3,7 @@ import App from './App.vue'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.css'
 
-import store from './store/store';
+import store from './store/';
 
 Vue.use(Vuetify)
 

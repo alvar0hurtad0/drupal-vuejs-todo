@@ -17,7 +17,7 @@
     export default {
         computed: {
             items() {
-                return this.$store.state.todos;
+                return this.$store.state.Todos.todos;
             }
         }
     }

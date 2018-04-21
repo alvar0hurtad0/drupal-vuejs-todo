@@ -14,8 +14,15 @@ export default {
         },
 
         [REMOVE_TODO](state, payload) {
-            var todos = state.todos
-            todos.splice(todos.indexOf(payload), 1)
+            var index = -1;
+            for(var i = 0; i < state.todos.length; i++) {
+                if(state.todos[i].id == payload) {
+                    index = i;
+                }
+            }
+            if (index != -1) {
+                state.todos.splice(index, 1);
+            }
         },
 
         [TOGGLE_TODO](state, payload) {

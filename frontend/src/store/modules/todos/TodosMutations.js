@@ -7,7 +7,8 @@ export const TOGGLE_TODO = 'TOGGLE_TODO;';
 export default {
         [ADD_TODO](state, payload) {
             state.todos.push({
-                body: payload,
+                id: payload.id,
+                body: payload.body,
                 completed: false
             })
         },

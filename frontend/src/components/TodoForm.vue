@@ -22,6 +22,12 @@
             };
         },
 
+        computed: {
+            items() {
+                return this.$store.state.Todos.todos;
+            }
+        },
+
         methods: {
             ...mapActions(['addTodo']),
 
@@ -33,8 +39,15 @@
                 if (!this.text.length) {
                     return;
                 }
+                // Get the number os current elements as ID for the new element.
+                const todoId = this.items.length;
                 const todoBody = this.text;
-                this.addTodo(todoBody);
+                this.addTodo({
+                    "id": todoId,
+                    "body": todoBody
+                });
+
+                // Reset the input text on the interface.
                 this.text = '';
             }
         }

@@ -39,8 +39,16 @@
                 if (!this.text.length) {
                     return;
                 }
-                // Get the number os current elements as ID for the new element.
-                const todoId = this.items.length;
+                // Calculate todoId depending on last element's ID.
+                let todoId;
+                if (this.items.length == 0) {
+                    todoId = 0;
+                }
+                else {
+                    const lastElementId = this.items[this.items.length -1 ].id;
+                     todoId = lastElementId + 1;
+                }
+
                 const todoBody = this.text;
                 this.addTodo({
                     "id": todoId,

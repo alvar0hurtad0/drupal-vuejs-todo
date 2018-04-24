@@ -1,7 +1,7 @@
 <template>
     <v-list-tile>
         <v-list-tile-action>
-            <v-checkbox></v-checkbox>
+            <v-checkbox v-model="status" @change="handleCheckbox"></v-checkbox>
         </v-list-tile-action>
         <v-list-tile-content>
             <v-list-tile-title v-text="item.body"></v-list-tile-title>
@@ -17,13 +17,21 @@
 
     export default {
         props:['id'],
+        data() {
+            return {
+                status: false,
+            };
+        },
         computed: {
             item() {
                 return this.$store.state.Todos.todos.find(todo => todo.id === this.id);
             }
         },
         methods: {
-            ...mapActions(['removeTodo']),
+            ...mapActions(['removeTodo', 'toggleTodo']),
+            handleCheckbox(){
+                this.toggleTodo(this.id);
+            }
         }
     }
 </script>

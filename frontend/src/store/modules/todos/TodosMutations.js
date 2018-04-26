@@ -26,6 +26,7 @@ export default {
         },
 
         [TOGGLE_TODO](state, payload) {
-            state.todos.find(todo => todo.id === payload).completed = !state.todos.find(todo => todo.id === payload).completed;
+            let todo = state.todos.find(todo => todo.id === payload)
+            todo.completed = !todo.completed;
         },
 }

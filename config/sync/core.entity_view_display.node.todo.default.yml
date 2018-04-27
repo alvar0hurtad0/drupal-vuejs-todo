@@ -1,0 +1,28 @@
+uuid: 27669c56-e187-4808-ae1f-6eea6ea526f3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.todo.field_done
+    - node.type.todo
+  module:
+    - user
+id: node.todo.default
+targetEntityType: node
+bundle: todo
+mode: default
+content:
+  field_done:
+    weight: 101
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden: {  }

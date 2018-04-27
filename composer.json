@@ -38,8 +38,8 @@
         "cweagans/composer-patches": "^1.6",
         "drupal-composer/drupal-scaffold": "^2.2",
         "drupal/console": "^1.0.2",
-        "drupal/core": "~8.4",
-        "drush/drush": "^9.0.0",
+        "drupal/core": "^8.5",
+        "drush/drush": "^8.0.0",
         "php": ">=5.5.9",
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3"
@@ -52,6 +52,9 @@
         "drupal/config_update": "1.*@dev",
         "drupal/devel": "1.*@dev",
         "drupal/drupal-extension": "~3.0",
+        "drupal/migrate_plus": "4.0.0-beta3",
+        "drupal/migrate_source_csv": "^2.1",
+        "drupal/migrate_tools": "^4.0",
         "drupal/phingdrushtask": "dev-7.x-2.x",
         "jcalderonzumba/gastonjs": "^1.1@dev",
         "jcalderonzumba/mink-phantomjs-driver": "~0.3.1",
@@ -70,7 +73,7 @@
     "config": {
         "sort-packages": true,
         "platform": {
-            "php": "5.6.31"
+            "php": "7.1"
         }
     },
     "autoload": {
@@ -108,6 +111,11 @@
             "web/profiles/contrib/{$name}": ["type:drupal-profile"],
             "web/themes/contrib/{$name}": ["type:drupal-theme"],
             "drush/contrib/{$name}": ["type:drupal-drush"]
+        },
+        "patches": {
+            "drupal/core": {
+                "2628004 - Skip hash.": "https://www.drupal.org/files/issues/2628004-9.patch"
+            }
         }
     }
 }

@@ -54,6 +54,7 @@ module.exports = {
     ]
   },
   devServer: {
+    host: "frontend.drupal-vue-todo.localhost",
     historyApiFallback: true,
     noInfo: true
   },

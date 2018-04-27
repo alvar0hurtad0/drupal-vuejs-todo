@@ -1,0 +1,23 @@
+id: dvt_default_content_user
+label: Default users
+migration_group: default_content
+source:
+  plugin: csv
+  path: '/default_content/user.csv'
+  delimiter: ','
+  enclosure: '"'
+  header_row_count: 1
+  keys:
+    - id
+process:
+  name: username
+  mail: email
+  roles: roles
+  pass:
+    plugin: callback
+    callable: md5
+    source: password
+  status: status
+destination:
+  plugin: 'entity:user'
+  md5_passwords: true

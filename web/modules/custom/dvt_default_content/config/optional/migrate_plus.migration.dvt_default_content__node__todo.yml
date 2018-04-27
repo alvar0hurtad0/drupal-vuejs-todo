@@ -1,0 +1,29 @@
+id: dvt_default_content__node__todo
+label: Default agency
+migration_group: default_content
+source:
+  plugin: csv
+  path: '/default_content/node__todo.csv'
+  delimiter: ','
+  enclosure: '"'
+  header_row_count: 1
+  keys:
+    - id
+process:
+  title: title
+  field_done: completed
+  uid:
+    source: author
+    plugin: migration_lookup
+    migration:
+      - dvt_default_content_user
+  type:
+    plugin: default_value
+    default_value: todo
+destination:
+  plugin: entity:node
+  entity_type: node
+  bundle: todo
+migration_dependencies:
+ required:
+    - dvt_default_content_user

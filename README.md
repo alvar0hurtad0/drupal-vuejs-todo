@@ -1,4 +1,5 @@
 # Drupal + vuejs todo
+[![Build Status](https://travis-ci.org/alvar0hurtad0/drupal-vuejs-todo.svg?branch=master)](https://travis-ci.org/alvar0hurtad0/drupal-vuejs-todo)
 
 This project is based on [drupal-composer/drupal-project](https://github.com/drupal-composer/drupal-project)
 

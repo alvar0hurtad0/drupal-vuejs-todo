@@ -52,7 +52,7 @@
                 const todoBody = this.text;
                 this.addTodo({
                     "id": todoId,
-                    "body": todoBody
+                    "title": todoBody
                 });
 
                 // Reset the input text on the interface.

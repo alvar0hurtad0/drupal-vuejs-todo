@@ -2,11 +2,12 @@ import Vue from 'vue';
 
 export const ADD_TODO = 'ADD_TODO';
 export const REMOVE_TODO = 'REMOVE_TODO';
+export const SET_TODOS = 'SET_TODOS';
 export const TOGGLE_TODO = 'TOGGLE_TODO;';
 
 export default {
      [ADD_TODO](state, { id, body }) {
-        state.todos.push({ id, body, completed: false })
+        state.todos.push({ id, body, status: false })
      },
     [REMOVE_TODO](state, id) {
         var index = -1;
@@ -20,8 +21,20 @@ export default {
             state.todos.splice(index, 1);
         }
     },
+    [SET_TODOS](state, payload) {
+        let todoList = [];
+        console.log(payload);
+        Object.values(payload).forEach(function(todoNode) {
+            console.log(todoNode.field_done[0].value);
+            state.todos.push({
+                id: todoNode.nid[0].value,
+                title: todoNode.title[0].value,
+                status: todoNode.field_done[0].value
+            })
+        });
+    },
     [TOGGLE_TODO](state, id) {
         let todo = state.todos.find(todo => todo.id === id)
-        todo.completed = !todo.completed;
+        todo.status = !todo.status;
     },
 }

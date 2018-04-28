@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: default_content
+label: Default content
+description: ''
+source_type: 'CSV'
+module: dvt_default_content

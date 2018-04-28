@@ -1,0 +1,23 @@
+uuid: de8158ba-7feb-4a9a-9737-e710d9b37f74
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_done
+    - node.type.todo
+id: node.todo.field_done
+field_name: field_done
+entity_type: node
+bundle: todo
+label: Done
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

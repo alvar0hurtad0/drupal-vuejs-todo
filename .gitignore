@@ -9,7 +9,6 @@
 /web/themes/contrib/
 
 # Ignore sensitive information
-/web/sites/*/settings.php
 /web/sites/*/settings.local.php
 
 # Ignore Drupal's file directory
@@ -19,6 +18,7 @@
 /web/sites/simpletest/
 
 # Ignore environment specific settings
+/settings.local.php
 /build.local.xml
 /build.properties.local
 /phpcs.xml

@@ -1,0 +1,19 @@
+uuid: 76dbf937-bc44-46c2-949e-63926b491ee0
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.todo
+  module:
+    - user
+id: node.todo.teaser
+targetEntityType: node
+bundle: todo
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_done: true

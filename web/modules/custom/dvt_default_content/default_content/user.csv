@@ -1,0 +1,5 @@
+id,username,email,roles,password,status
+user_1,user1,user1@test.test,authenticated,user1,1
+user_2,user2,user2@test.test,authenticated,user2,1
+user_3,user3,user3@test.test,authenticated,user3,1
+user_4,user4,user4@test.test,authenticated,user4,1

@@ -1,0 +1,22 @@
+<?php
+
+/**
+ * @file
+ * Main module file.
+ */
+
+/**
+ * Implements hook_migration_plugins_alter().
+ *
+ * CSV source plugin requires absolute path on the system so we need to chage to
+ * a relative path.
+ */
+function dvt_default_content_migration_plugins_alter(&$definitions) {
+  // Get the module base path.
+  $module_real_path = __DIR__;
+  foreach ($definitions as $key => $item) {
+    if ($item['migration_group'] == 'default_content') {
+      $definitions[$key]['source']['path'] = $module_real_path . $definitions[$key]['source']['path'];
+    }
+  }
+}

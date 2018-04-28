@@ -1,0 +1,20 @@
+langcode: de
+status: true
+dependencies:
+  module:
+    - dvt_rest_api
+    - serialization
+    - user
+id: dvt_todos_resource
+plugin_id: dvt_todos_resource
+granularity: resource
+configuration:
+  methods:
+    - GET
+    - POST
+    - PATCH
+    - DELETE
+  formats:
+    - json
+  authentication:
+    - cookie

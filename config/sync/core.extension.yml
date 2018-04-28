@@ -3,13 +3,17 @@ module:
   breakpoint: 0
   config: 0
   dblog: 0
+  dvt_rest_api: 0
   dynamic_page_cache: 0
   field: 0
   field_ui: 0
   file: 0
   filter: 0
+  hal: 0
   node: 0
   page_cache: 0
+  rest: 0
+  serialization: 0
   system: 0
   text: 0
   toolbar: 0

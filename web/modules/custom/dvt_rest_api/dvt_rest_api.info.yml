@@ -1,0 +1,8 @@
+name: Drupal Vuejs todo REST API
+description: Define's REST Resources
+package: DVT
+type: module
+core: 8.x
+dependencies:
+  - rest
+  - hal

@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * @file
+ * Main module file.
+ */
+
+use Drupal\node\Entity\Node;
+
+/**
+ * Implements hook_comment_presave().
+ *
+ * Invalidates todos cache.
+ */
+function dvt_rest_api_node_presave(Node $node) {
+  // Invalidates todos cache after any changes.
+  if ($node->get('type') == 'todo') {
+    \Drupal::service('cache_tags.invalidator')->invalidateTags(['dvt_todos']);
+  }
+}

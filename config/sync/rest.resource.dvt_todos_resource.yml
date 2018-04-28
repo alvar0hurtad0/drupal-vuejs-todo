@@ -1,0 +1,23 @@
+uuid: 4ac086c0-19ce-4368-abdf-513657080b5d
+langcode: de
+status: true
+dependencies:
+  module:
+    - dvt_rest_api
+    - serialization
+    - user
+_core:
+  default_config_hash: bhzJD3uoRL3Q5FJypDKAtbOnCQ-c4R4PPNwbSnB43lI
+id: dvt_todos_resource
+plugin_id: dvt_todos_resource
+granularity: resource
+configuration:
+  methods:
+    - GET
+    - POST
+    - PATCH
+    - DELETE
+  formats:
+    - json
+  authentication:
+    - cookie

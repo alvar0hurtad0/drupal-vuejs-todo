@@ -14,5 +14,5 @@ POST a todo /api/v1/todos {"title": ' - - - - ',"status":true/false}
 
 DELETE a todo /api/v1/todos/{todo_id}
 
-PATCH a todo /api/v1/todos/{todo_id} -> {"title": ' - - - - ',"status":true/false}
+PATCH a todo /api/v1/todos/{todo_id} -> {"title": ' - - ',"status":true/false}
 ```

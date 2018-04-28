@@ -86,6 +86,9 @@
         ]
     },
     "scripts": {
+        "default-content": [
+            "./scripts/workflow/default-content.sh"
+        ],
         "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
         "project-install": [
             "./scripts/workflow/project-install.sh"

@@ -23,12 +23,13 @@ export default {
     },
 
     addTodo(payload) {
-        let config = JSON.stringify({
+        let config = {
             headers: {
+                "Authorization": "Basic " + btoa('admin:admin'),
                 "CSRF-Token": localStorage.getItem('csrf_token'),
                 "Content-Type": "application/json"
             }
-        });
+        };
 
         return axios.post(`${BASE_API_URL}/api/v1/todos?_format=json`, {title:payload.title, status: false}, config)
             .then((response) => Promise.resolve(response.data))

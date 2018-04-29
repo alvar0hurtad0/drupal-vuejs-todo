@@ -23,9 +23,7 @@ export default {
     },
     [SET_TODOS](state, payload) {
         let todoList = [];
-        console.log(payload);
         Object.values(payload).forEach(function(todoNode) {
-            console.log(todoNode.field_done[0].value);
             state.todos.push({
                 id: todoNode.nid[0].value,
                 title: todoNode.title[0].value,
@@ -33,8 +31,8 @@ export default {
             })
         });
     },
-    [TOGGLE_TODO](state, id) {
+    [TOGGLE_TODO](state, {id, title, status}) {
         let todo = state.todos.find(todo => todo.id === id)
-        todo.status = !todo.status;
+        todo.status = status;
     },
 }

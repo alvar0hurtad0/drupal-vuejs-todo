@@ -10,3 +10,7 @@ weight: 0
 is_admin: false
 permissions:
   - 'access content'
+  - 'restful delete dvt_todos_resource'
+  - 'restful get dvt_todos_resource'
+  - 'restful patch dvt_todos_resource'
+  - 'restful post dvt_todos_resource'

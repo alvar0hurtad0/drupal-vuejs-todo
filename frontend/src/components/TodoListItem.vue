@@ -1,7 +1,8 @@
 <template>
     <v-list-tile>
         <v-list-tile-action>
-            <v-checkbox v-model="item.status" @change="handleCheckbox"></v-checkbox>
+            <v-icon v-if="item.status" @click.stop="handleCheckbox(id)">check_box</v-icon>
+            <v-icon v-if="!item.status" @click.stop="handleCheckbox(id)">check_box_outline_blank</v-icon>
         </v-list-tile-action>
         <v-list-tile-content>
             <v-list-tile-title v-text="item.title"></v-list-tile-title>
@@ -25,7 +26,11 @@
         methods: {
             ...mapActions(['removeTodo', 'toggleTodo']),
             handleCheckbox(){
-                this.toggleTodo(this.id);
+                this.toggleTodo({
+                    "id": this.item.id,
+                    "title": this.item.title,
+                    "status": !this.item.status
+                });
             }
         }
     }

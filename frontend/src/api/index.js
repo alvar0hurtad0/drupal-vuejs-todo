@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 export default {
+    // @todo this part is not really working fine.
     getToken() {
         if (localStorage.getItem('csrf_token')) {
             return
@@ -14,12 +15,13 @@ export default {
                 "Content-Type": "application/json"
             }
         });
-        axios.post('http://drupal-vue-todo.localhost:8610/user/login?_format=json',data, config)
+        axios.post(`${BASE_API_URL}/user/login?_format=json`,data, config)
             .then(res => localStorage.setItem('csrf_token', res.data.csrf_token))
             .catch(({ response }) => {
                 console.log('Issue with login')
             })
     },
+
     addTodo(payload) {
         let config = JSON.stringify({
             headers: {
@@ -28,18 +30,44 @@ export default {
             }
         });
 
-        console.log(payload);
-        return axios.post('http://drupal-vue-todo.localhost:8610/api/v1/todos?_format=json', {title:payload.title, status: false}, config)
+        return axios.post(`${BASE_API_URL}/api/v1/todos?_format=json`, {title:payload.title, status: false}, config)
             .then((response) => Promise.resolve(response.data))
             .catch((error) => Promise.reject(error));
     },
+
+    editTodo({id, title, status}) {
+        let config = JSON.stringify({
+            headers: {
+                "CSRF-Token": localStorage.getItem('csrf_token'),
+                "Content-Type": "application/json"
+            }
+        });
+
+        return axios.patch(`${BASE_API_URL}/api/v1/todos/${id}?_format=json`, {title: title, status: status}, config)
+            .then((response) => Promise.resolve(response.data))
+            .catch((error) => Promise.reject(error));
+    },
+
+    removeTodo(id) {
+        let config = JSON.stringify({
+            headers: {
+                "CSRF-Token": localStorage.getItem('csrf_token'),
+                "Content-Type": "application/json"
+            }
+        });
+
+        return axios.delete(`${BASE_API_URL}/api/v1/todos/${id}?_format=json`, config)
+            .then((response) => Promise.resolve(response.data))
+            .catch((error) => Promise.reject(error));
+    },
+
     getTodos() {
         let config = JSON.stringify({
             headers: {
                 "CSRF-Token": localStorage.getItem('csrf_token')
             }
         });
-        return axios.get('http://drupal-vue-todo.localhost:8610/api/v1/todos?_format=json', config)
+        return axios.get(`${BASE_API_URL}/api/v1/todos?_format=json`, config)
             .then((response) => Promise.resolve(response.data))
             .catch((error) => Promise.reject(error));
     },

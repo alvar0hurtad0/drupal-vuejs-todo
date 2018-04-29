@@ -14,9 +14,11 @@ export default {
         commit(ADD_TODO, payload)
     },
     removeTodo({commit}, payload) {
+        api.removeTodo(payload);
         commit(REMOVE_TODO, payload)
     },
     toggleTodo({commit}, payload) {
+        api.editTodo(payload);
         commit(TOGGLE_TODO, payload)
     }
 }

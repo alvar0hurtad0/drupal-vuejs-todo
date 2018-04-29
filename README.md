@@ -5,7 +5,8 @@ This project is based on [drupal-composer/drupal-project](https://github.com/dru
 
 ## Install backed
 
- * Make sure you have composer and all the stuff to run a drupal on you host. (https://www.drupal.org/docs/8/system-requirements)
+ * Make sure you have composer and all the stuff to run a drupal on you host. PHP 7.1 or higher is required
+  (https://www.drupal.org/docs/8/system-requirements)
  * Copy `\example.settings.local.php` into `settings.local.php` and customize the values (at least related with database) 
  * Run `composer project-install`
  * Make all the changes required for your webserver to make `http://drupal-vue-todo.localhost` serve the `web` folder of this repo.

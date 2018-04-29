@@ -54,7 +54,6 @@ module.exports = {
     ]
   },
   devServer: {
-    host: "drupal-vue-todo.localhost",
     historyApiFallback: true,
     noInfo: true
   },
@@ -88,7 +87,7 @@ if (process.env.NODE_ENV === 'production') {
 if (process.env.NODE_ENV === 'development') {
     module.exports.plugins = (module.exports.plugins || []).concat([
         new webpack.DefinePlugin({
-            BASE_API_URL: JSON.stringify("http://drupal-vue-todo.localhost:8610"),
+            BASE_API_URL: JSON.stringify("http://drupal-vue-todo.localhost"),
         })
     ])
 }

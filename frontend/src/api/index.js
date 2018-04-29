@@ -4,7 +4,7 @@ export default {
     // @todo this part is not really working fine.
     getToken() {
         if (localStorage.getItem('csrf_token')) {
-            return
+          //  return
         }
         let data =JSON.stringify({
             name: "admin",
@@ -16,7 +16,10 @@ export default {
             }
         });
         axios.post(`${BASE_API_URL}/user/login?_format=json`,data, config)
-            .then(res => localStorage.setItem('csrf_token', res.data.csrf_token))
+            .then(res => {
+                localStorage.setItem('csrf_token', res.data.csrf_token);
+                localStorage.setItem('auth_token', btoa('admin:admin'));
+            })
             .catch(({ response }) => {
                 console.log('Issue with login')
             })
@@ -25,7 +28,7 @@ export default {
     addTodo(payload) {
         let config = {
             headers: {
-                "Authorization": "Basic " + btoa('admin:admin'),
+                "Authorization": "Basic " + localStorage.getItem('auth_token'),
                 "CSRF-Token": localStorage.getItem('csrf_token'),
                 "Content-Type": "application/json"
             }
@@ -37,12 +40,13 @@ export default {
     },
 
     editTodo({id, title, status}) {
-        let config = JSON.stringify({
+        let config = {
             headers: {
+                "Authorization": "Basic " + localStorage.getItem('auth_token'),
                 "CSRF-Token": localStorage.getItem('csrf_token'),
                 "Content-Type": "application/json"
             }
-        });
+        };
 
         return axios.patch(`${BASE_API_URL}/api/v1/todos/${id}?_format=json`, {title: title, status: status}, config)
             .then((response) => Promise.resolve(response.data))
@@ -50,12 +54,13 @@ export default {
     },
 
     removeTodo(id) {
-        let config = JSON.stringify({
+        let config = {
             headers: {
+                "Authorization": "Basic " + localStorage.getItem('auth_token'),
                 "CSRF-Token": localStorage.getItem('csrf_token'),
                 "Content-Type": "application/json"
             }
-        });
+        };
 
         return axios.delete(`${BASE_API_URL}/api/v1/todos/${id}?_format=json`, config)
             .then((response) => Promise.resolve(response.data))
@@ -63,11 +68,13 @@ export default {
     },
 
     getTodos() {
-        let config = JSON.stringify({
+        let config = {
             headers: {
-                "CSRF-Token": localStorage.getItem('csrf_token')
+                "Authorization": "Basic " + localStorage.getItem('auth_token'),
+                "CSRF-Token": localStorage.getItem('csrf_token'),
+                "Content-Type": "application/json"
             }
-        });
+        };
         return axios.get(`${BASE_API_URL}/api/v1/todos?_format=json`, config)
             .then((response) => Promise.resolve(response.data))
             .catch((error) => Promise.reject(error));

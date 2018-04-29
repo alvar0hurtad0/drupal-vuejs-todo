@@ -99,8 +99,8 @@ class TodoResource extends ResourceBase {
     $result = $this->nodeStorage->getQuery()
       ->condition('status', 1)
       ->condition('type', 'todo')
-      // @todo Get only current user's todos with
-      // ->condition('uid', $this->currentUser->id())
+      // Get only current user's todos with
+      ->condition('uid', $this->currentUser->id())
       ->execute();
 
     // Get nodes.

@@ -6,8 +6,8 @@ export const SET_TODOS = 'SET_TODOS';
 export const TOGGLE_TODO = 'TOGGLE_TODO;';
 
 export default {
-     [ADD_TODO](state, { id, body }) {
-        state.todos.push({ id, body, status: false })
+     [ADD_TODO](state, { id, title }) {
+        state.todos.push({ id, title, status: false })
      },
     [REMOVE_TODO](state, id) {
         var index = -1;

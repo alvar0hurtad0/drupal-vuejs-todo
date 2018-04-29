@@ -14,7 +14,7 @@ use Drupal\node\Entity\Node;
  */
 function dvt_rest_api_node_presave(Node $node) {
   // Invalidates todos cache after any changes.
-  if ($node->get('type') == 'todo') {
+  if ($node->bundle() == 'todo') {
     \Drupal::service('cache_tags.invalidator')->invalidateTags(['dvt_todos']);
   }
 }

@@ -22,7 +22,7 @@ export default {
         }
     },
     [SET_TODOS](state, payload) {
-        let todoList = [];
+        state.todos = [];
         Object.values(payload).forEach(function(todoNode) {
             state.todos.push({
                 id: todoNode.nid[0].value,

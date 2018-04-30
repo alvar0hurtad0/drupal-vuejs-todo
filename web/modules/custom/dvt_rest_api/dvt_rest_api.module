@@ -8,7 +8,7 @@
 use Drupal\node\Entity\Node;
 
 /**
- * Implements hook_comment_presave().
+ * Implements hook_node_presave().
  *
  * Invalidates todos cache.
  */
@@ -20,7 +20,7 @@ function dvt_rest_api_node_presave(Node $node) {
 }
 
 /**
- * Implements hook_comment_presave().
+ * Implements hook_node_delete().
  *
  * Invalidates todos cache.
  */

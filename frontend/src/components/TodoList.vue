@@ -21,7 +21,6 @@
             }
         },
         mounted() {
-            this.getToken();
             this.getTodos();
         },
     }

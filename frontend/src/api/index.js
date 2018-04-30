@@ -2,14 +2,12 @@ import axios from 'axios';
 
 export default {
     // @todo this part is not really working fine.
-    getToken() {
-        if (localStorage.getItem('csrf_token')) {
-          //  return
-        }
+    getToken(payload) {
         let data =JSON.stringify({
-            name: "admin",
-            pass: "admin"
-        })
+            name: payload.username,
+            pass: payload.password
+        });
+
         let config = JSON.stringify({
             headers: {
                 "Content-Type": "application/json"
@@ -18,7 +16,8 @@ export default {
         axios.post(`${BASE_API_URL}/user/login?_format=json`,data, config)
             .then(res => {
                 localStorage.setItem('csrf_token', res.data.csrf_token);
-                localStorage.setItem('auth_token', btoa('admin:admin'));
+                localStorage.setItem('username', payload.username);
+                localStorage.setItem('auth_token', btoa(payload.username + ':' + payload.password));
             })
             .catch(({ response }) => {
                 console.log('Issue with login')

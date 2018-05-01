@@ -5,17 +5,23 @@
 </template>
 
 <script>
-    import { mapGetters } from 'vuex';
+    import { mapActions, mapGetters } from 'vuex';
     import TodoListItem from './TodoListItem';
 
     export default {
         components: {
             'todo-list-item': TodoListItem,
         },
+        methods: {
+            ...mapActions(['getTodos', 'getToken']),
+        },
         computed: {
             items() {
                 return this.$store.state.Todos.todos;
             }
-        }
+        },
+        mounted() {
+            this.getTodos();
+        },
     }
 </script>

@@ -3,6 +3,7 @@ langcode: de
 status: true
 dependencies:
   module:
+    - basic_auth
     - dvt_rest_api
     - serialization
     - user
@@ -15,9 +16,10 @@ configuration:
   methods:
     - GET
     - POST
-    - PATCH
     - DELETE
+    - PATCH
   formats:
     - json
   authentication:
+    - basic_auth
     - cookie

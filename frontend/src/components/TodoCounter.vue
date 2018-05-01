@@ -9,7 +9,7 @@
     export default {
         computed: {
             count() {
-                return this.$store.state.Todos.todos.filter(todo => todo.completed === false).length;
+                return this.$store.state.Todos.todos.filter(todo => todo.status === false).length;
             }
         }
     }

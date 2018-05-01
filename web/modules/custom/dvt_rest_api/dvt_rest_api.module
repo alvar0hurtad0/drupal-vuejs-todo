@@ -8,13 +8,25 @@
 use Drupal\node\Entity\Node;
 
 /**
- * Implements hook_comment_presave().
+ * Implements hook_node_presave().
  *
  * Invalidates todos cache.
  */
 function dvt_rest_api_node_presave(Node $node) {
   // Invalidates todos cache after any changes.
-  if ($node->get('type') == 'todo') {
+  if ($node->bundle() == 'todo') {
+    \Drupal::service('cache_tags.invalidator')->invalidateTags(['dvt_todos']);
+  }
+}
+
+/**
+ * Implements hook_node_delete().
+ *
+ * Invalidates todos cache.
+ */
+function dvt_rest_api_node_delete(Node $node) {
+  // Invalidates todos cache after any changes.
+  if ($node->bundle() == 'todo') {
     \Drupal::service('cache_tags.invalidator')->invalidateTags(['dvt_todos']);
   }
 }

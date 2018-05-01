@@ -1,10 +1,11 @@
 <template>
     <v-list-tile>
         <v-list-tile-action>
-            <v-checkbox v-model="status" @change="handleCheckbox"></v-checkbox>
+            <v-icon v-if="item.status" @click.stop="handleCheckbox(id)">check_box</v-icon>
+            <v-icon v-if="!item.status" @click.stop="handleCheckbox(id)">check_box_outline_blank</v-icon>
         </v-list-tile-action>
         <v-list-tile-content>
-            <v-list-tile-title v-text="item.body"></v-list-tile-title>
+            <v-list-tile-title v-text="item.title"></v-list-tile-title>
         </v-list-tile-content>
         <v-list-tile-action>
             <v-icon @click.stop="removeTodo(id)">delete</v-icon>
@@ -17,11 +18,6 @@
 
     export default {
         props:['id'],
-        data() {
-            return {
-                status: false,
-            };
-        },
         computed: {
             item() {
                 return this.$store.state.Todos.todos.find(todo => todo.id === this.id);
@@ -30,7 +26,11 @@
         methods: {
             ...mapActions(['removeTodo', 'toggleTodo']),
             handleCheckbox(){
-                this.toggleTodo(this.id);
+                this.toggleTodo({
+                    "id": this.item.id,
+                    "title": this.item.title,
+                    "status": !this.item.status
+                });
             }
         }
     }

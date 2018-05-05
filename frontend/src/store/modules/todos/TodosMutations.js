@@ -32,7 +32,6 @@ export default {
         });
     },
     [TOGGLE_TODO](state, {id, title, status}) {
-        let todo = state.todos.find(todo => todo.id === id)
-        todo.status = status;
+         state.todos.find(todo => todo.id === id).status = status;
     },
 }

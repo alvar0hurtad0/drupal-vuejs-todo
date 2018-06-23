@@ -1,4 +1,5 @@
 import axios from 'axios';
+import './axiosInterceptor';
 
 export default {
     // @todo this part is not really working fine.
@@ -25,56 +26,25 @@ export default {
     },
 
     addTodo(payload) {
-        let config = {
-            headers: {
-                "Authorization": "Basic " + localStorage.getItem('auth_token'),
-                "CSRF-Token": localStorage.getItem('csrf_token'),
-                "Content-Type": "application/json"
-            }
-        };
-
-        return axios.post(`${BASE_API_URL}/api/v1/todos?_format=json`, {title:payload.title, status: false}, config)
+        return axios.post(`${BASE_API_URL}/api/v1/todos?_format=json`, {title:payload.title, status: false})
             .then((response) => Promise.resolve(response.data))
             .catch((error) => Promise.reject(error));
     },
 
     editTodo({id, title, status}) {
-        let config = {
-            headers: {
-                "Authorization": "Basic " + localStorage.getItem('auth_token'),
-                "CSRF-Token": localStorage.getItem('csrf_token'),
-                "Content-Type": "application/json"
-            }
-        };
-
-        return axios.patch(`${BASE_API_URL}/api/v1/todos/${id}?_format=json`, {title: title, status: status}, config)
+        return axios.patch(`${BASE_API_URL}/api/v1/todos/${id}?_format=json`, {title: title, status: status})
             .then((response) => Promise.resolve(response.data))
             .catch((error) => Promise.reject(error));
     },
 
     removeTodo(id) {
-        let config = {
-            headers: {
-                "Authorization": "Basic " + localStorage.getItem('auth_token'),
-                "CSRF-Token": localStorage.getItem('csrf_token'),
-                "Content-Type": "application/json"
-            }
-        };
-
-        return axios.delete(`${BASE_API_URL}/api/v1/todos/${id}?_format=json`, config)
+        return axios.delete(`${BASE_API_URL}/api/v1/todos/${id}?_format=json`)
             .then((response) => Promise.resolve(response.data))
             .catch((error) => Promise.reject(error));
     },
 
     getTodos() {
-        let config = {
-            headers: {
-                "Authorization": "Basic " + localStorage.getItem('auth_token'),
-                "CSRF-Token": localStorage.getItem('csrf_token'),
-                "Content-Type": "application/json"
-            }
-        };
-        return axios.get(`${BASE_API_URL}/api/v1/todos?_format=json`, config)
+        return axios.get(`${BASE_API_URL}/api/v1/todos?_format=json`)
             .then((response) => Promise.resolve(response.data))
             .catch((error) => Promise.reject(error));
     },

@@ -1,9 +1,6 @@
 import {ADD_TODO, REMOVE_TODO, SET_TODOS, TOGGLE_TODO} from "./TodosMutations";
-import api from "../../../api"
+import api from "@/api"
 export default {
-    getToken({commit},payload){
-        api.getToken(payload);
-    },
     getTodos({commit}, payload) {
         api.getTodos()
             .then((response) => commit(SET_TODOS, response))

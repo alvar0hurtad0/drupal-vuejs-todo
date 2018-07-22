@@ -17,14 +17,16 @@ export default {
 
         localStorage.clear();
 
-        axios.post(`${BASE_API_URL}/user/login?_format=json`,data, config)
+        return axios.post(`${BASE_API_URL}/user/login?_format=json`,data, config)
             .then(res => {
                 localStorage.setItem('csrf_token', res.data.csrf_token);
                 localStorage.setItem('username', payload.username);
                 localStorage.setItem('auth_token', btoa(payload.username + ':' + payload.password));
+                Promise.resolve(res.data);
             })
-            .catch(({ response }) => {
-                console.log('Issue with login')
+            .catch(({ error }) => {
+                console.log('Issue with login');
+                Promise.reject(error);
             })
     },
 

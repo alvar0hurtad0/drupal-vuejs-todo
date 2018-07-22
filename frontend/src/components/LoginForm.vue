@@ -42,17 +42,23 @@
 
 <script>
     import { mapActions } from 'vuex';
-
+    import { mapState } from 'vuex';
     export default {
         data () {
             return {
-                dialog: false,
+                dialog: true,
                 password: '',
                 username: ''
             }
         },
+        computed: {
+            ...mapState(['User']),
+        },
+        watch: {
+            User: function() {checkUser()},
+        },
         methods: {
-            ...mapActions(['getToken', 'getTodos']),
+            ...mapActions(['getToken', 'getTodos', 'checkUser']),
 
             usernameInputHandler(input) {
                 this.username = input;
@@ -63,12 +69,10 @@
             },
 
             sendHandler() {
-                this.getToken({
-                    username: this.username,
-                    password: this.password
-                });
-                this.dialog = false;
-                this.getTodos();
+              this.getToken({
+                username: this.username,
+                password: this.password
+              });
             }
         }
     }

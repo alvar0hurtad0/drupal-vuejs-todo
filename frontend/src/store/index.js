@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex';
 import Todos from './modules/todos';
+import User from './modules/user';
 
 const actions = {};
 const getters = {};
@@ -14,6 +15,7 @@ export default new Vuex.Store({
     getters,
     modules: {
         Todos,
+        User
     },
     mutations,
     state

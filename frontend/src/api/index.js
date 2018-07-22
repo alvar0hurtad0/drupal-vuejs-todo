@@ -14,6 +14,9 @@ export default {
                 "Content-Type": "application/json"
             }
         });
+
+        localStorage.clear();
+
         axios.post(`${BASE_API_URL}/user/login?_format=json`,data, config)
             .then(res => {
                 localStorage.setItem('csrf_token', res.data.csrf_token);

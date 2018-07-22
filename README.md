@@ -16,3 +16,10 @@ This project is based on [drupal-composer/drupal-project](https://github.com/dru
  * Go to `frontend` folder
  * run `yarn install`
  * run `yarn dev`
+
+## Troubleshooting
+### I can't serve the drupal in http://drupal-vue-todo.localhost
+Just change the {BASE_API_URL} here: https://github.com/alvar0hurtad0/drupal-vuejs-todo/blob/master/frontend/webpack.config.js#L91
+
+### I'm very interested but I can't do it run
+I can provide some basic suppor on twitter: https://twitter.com/alvar0hurtad0

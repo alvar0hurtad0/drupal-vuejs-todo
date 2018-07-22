@@ -30,3 +30,10 @@ function dvt_rest_api_node_delete(Node $node) {
     \Drupal::service('cache_tags.invalidator')->invalidateTags(['dvt_todos']);
   }
 }
+
+/**
+ * Implements hook_user_login.
+ */
+function dvt_rest_api_user_login($account) {
+  \Drupal::service('cache_tags.invalidator')->invalidateTags(['dvt_todos']);
+}

@@ -130,6 +130,13 @@ $settings['rebuild_access'] = TRUE;
  */
 $settings['skip_permissions_hardening'] = TRUE;
 
+/**
+ * Ensure no mails are sent from the system and they are logged through devel
+ * instead.
+ * You can find them at /tmp/devel-mails/
+ */
+$config['system.mail']['interface']['default'] = 'devel_mail_log';
+
 $databases['default']['default'] = array (
   'database' => 'dvt_local',
   'username' => 'root',

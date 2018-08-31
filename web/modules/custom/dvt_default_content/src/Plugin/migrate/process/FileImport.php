@@ -19,7 +19,7 @@ class FileImport extends ProcessPluginBase {
    * {@inheritdoc}
    */
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
-    $source = drupal_get_path('module', 'dvt_default_content') . '/default_content/pictures/' . $value;
+    $source = drupal_get_path('module', 'dvt_default_content') . '/default_content/files/' . $value;
     if (!$uri = file_unmanaged_copy($source)) {
       return [];
     }

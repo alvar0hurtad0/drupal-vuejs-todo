@@ -22,7 +22,12 @@ This project is based on [drupal-composer/drupal-project](https://github.com/dru
 Just change the {BASE_API_URL} here: https://github.com/alvar0hurtad0/drupal-vuejs-todo/blob/master/frontend/webpack.config.js#L91
 
 ### Yarn can not find install on Ubuntu
-There's a problem with package cmdtest on `ubuntu` you can just try npm or remove old package and isntall the good one:
+There's a problem with package cmdtest on `ubuntu` that throws this error:
+```
+00h00m00s 0/0: : ERROR: [Errno 2] No such file or directory: 'install'
+```
+
+you can just try npm or remove old package and isntall the good one:
 ```
 sudo apt remove cmdtest
 sudo apt remove yarn

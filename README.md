@@ -21,5 +21,14 @@ This project is based on [drupal-composer/drupal-project](https://github.com/dru
 ### I can't serve the drupal in http://drupal-vue-todo.localhost
 Just change the {BASE_API_URL} here: https://github.com/alvar0hurtad0/drupal-vuejs-todo/blob/master/frontend/webpack.config.js#L91
 
+### Yarn can not find install on Ubuntu
+There's a problem with package cmdtest on `ubuntu` you can just try npm or remove old package and isntall the good one:
+```
+sudo apt remove cmdtest
+sudo apt remove yarn
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt-get update && sudo apt-get install yarn
+```
 ### I'm very interested but I can't do it run
 I can provide some basic suppor on twitter: https://twitter.com/alvar0hurtad0

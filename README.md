@@ -3,7 +3,7 @@
 
 This project is based on [drupal-composer/drupal-project](https://github.com/drupal-composer/drupal-project)
 
-## Install backed
+## Install backend
 
  * Make sure you have composer and all the stuff to run a drupal on you host. PHP 7.1 or higher is required
   (https://www.drupal.org/docs/8/system-requirements)

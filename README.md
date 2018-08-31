@@ -14,8 +14,8 @@ This project is based on [drupal-composer/drupal-project](https://github.com/dru
 ## Install frontend
  * Make sure you have node and yarn installed on your host
  * Go to `frontend` folder
- * run `yarn install`
- * run `yarn dev`
+ * run `npm install` or `yarn install`
+ * run `npm run dev` or `yarn dev`
 
 ## Troubleshooting
 ### I can't serve the drupal in http://drupal-vue-todo.localhost

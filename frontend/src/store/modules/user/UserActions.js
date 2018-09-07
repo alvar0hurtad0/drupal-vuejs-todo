@@ -13,7 +13,7 @@ export default {
       commit(SET_NAME, '');
     },
     checkUser({commit}) {
-        if (localStorage.getItem('username')) {
+        if (localStorage.getItem('loggedIn')) {
             commit(SET_LOGGED_IN, true);
             commit(SET_NAME, localStorage.getItem('username'));
         }

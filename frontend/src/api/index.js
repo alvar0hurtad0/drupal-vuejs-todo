@@ -52,7 +52,7 @@ export default {
     },
 
     getTodos() {
-        return axios.get(`${BASE_API_URL}/api/v1/todos?_format=json`)
+        return axios.get(`${BASE_API_URL}/api/v1/todos/all?_format=json`)
             .then((response) => Promise.resolve(response.data))
             .catch((error) => Promise.reject(error));
     },

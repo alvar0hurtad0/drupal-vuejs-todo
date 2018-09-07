@@ -18,10 +18,8 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *   id = "dvt_todos_resource",
  *   label = @Translation("Todos resource."),
  *   uri_paths = {
- *     "GET" = "/api/v1/todos",
- *     "POST" = "/api/v1/todos",
- *     "PATCH" = "/api/v1/todos/{id}",
- *     "DELETE" = "/api/v1/todos/{id}"
+ *     "canonical" = "/api/v1/todos/{id}",
+ *     "create" = "/api/v1/todos",
  *   }
  * )
  */
@@ -95,19 +93,27 @@ class TodoResource extends ResourceBase {
    * @return \Drupal\rest\ResourceResponse
    *   Rest response.
    */
-  public function get() {
-    $result = $this->nodeStorage->getQuery()
+  public function get($id) {
+    $query = $this->nodeStorage->getQuery()
+      // Get only published todos.
       ->condition('status', 1)
       ->condition('type', 'todo')
       // Get only current user's todos.
-      ->condition('uid', $this->currentUser->id())
-      ->execute();
+      ->condition('uid', $this->currentUser->id());
+
+    // If we're trying to get a specific todo.
+    if ($id != 'all') {
+        $query->condition('nid', $id);
+    }
+
+    $result = $query->execute();
 
     // Get nodes.
     $nodes = $this->nodeStorage->loadMultiple($result);
 
     $response = new ResourceResponse($nodes);
 
+    // Alter caches.
     $response->getCacheableMetadata()
       ->addCacheTags(['dvt_todos']);
 
@@ -195,25 +201,6 @@ class TodoResource extends ResourceBase {
     $response = new ResourceResponse();
 
     return $response;
-  }
-
-  /**
-   * {@inheritdoc}
-   *
-   * Overrides parent method in order to allow PATCH and DELETE.
-   * It also changes the name on the plugin definition.
-   */
-  public function routes() {
-    $collection = new RouteCollection();
-    $definition = $this->getPluginDefinition();
-    $route_name = strtr($this->pluginId, ':', '.');
-    $methods = $this->availableMethods();
-    foreach ($methods as $method) {
-      $route = $this->getBaseRoute($definition['uri_paths'][$method], $method);
-      $collection->add("$route_name.$method", $route);
-    }
-
-    return $collection;
   }
 
 }

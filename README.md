@@ -2,6 +2,14 @@
 [![Build Status](https://travis-ci.org/alvar0hurtad0/drupal-vuejs-todo.svg?branch=master)](https://travis-ci.org/alvar0hurtad0/drupal-vuejs-todo)
 
 This project is based on [drupal-composer/drupal-project](https://github.com/drupal-composer/drupal-project)
+## Short overview
+This is an example about how to build a decoupled drupal + vuejs application. Even it's not ready for production is a
+good starting point if you just need to understand how this kind of application can work together.
+
+Most of the backend lives on the `web` folder and the fronted lives on the `frontend` folder.
+
+After the installation you can expect a drupal website just needed to store the data and manage user permissions, and a
+javascript application that is the real interface for the users.
 
 ## Install backend
 

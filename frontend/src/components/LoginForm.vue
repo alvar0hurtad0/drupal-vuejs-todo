@@ -1,7 +1,6 @@
 <template>
     <v-layout row justify-center>
         <v-dialog v-model="dialog" persistent max-width="500px">
-            <v-btn color="primary" dark slot="activator">Login</v-btn>
             <v-card>
                 <v-card-title>
                     <span class="headline">Login</span>
@@ -32,8 +31,7 @@
                 </v-card-text>
                 <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn color="blue darken-1" flat @click.native="dialog = false" value="username">Cancel</v-btn>
-                    <v-btn color="blue darken-1" flat @click.stop="sendHandler" value="password">OK</v-btn>
+                    <v-btn color="blue darken-1" flat @click.stop="sendHandler" value="password">LOGIN</v-btn>
                 </v-card-actions>
             </v-card>
         </v-dialog>
@@ -41,8 +39,9 @@
 </template>
 
 <script>
-    import { mapActions } from 'vuex';
-    import { mapState } from 'vuex';
+    import { mapActions, mapState } from 'vuex';
+    import router from '@/router/';
+
     export default {
         data () {
             return {
@@ -69,10 +68,10 @@
             },
 
             sendHandler() {
-              this.getToken({
-                username: this.username,
-                password: this.password
-              });
+                this.getToken({
+                    username: this.username,
+                    password: this.password
+                });
             }
         }
     }

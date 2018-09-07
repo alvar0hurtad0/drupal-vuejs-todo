@@ -18,7 +18,21 @@ This project is based on [drupal-composer/drupal-project](https://github.com/dru
  of this repo.
 
 ## Install frontend
- * Make sure you have node and yarn installed on your host
+ ###Requirements:
+ * Node js v9.8.0: Follow this steps to install:
+ https://nodejs.org/en/download/package-manager/
+ 
+ You can upgrade your version of nodejs with those commands
+ ```
+ sudo npm cache clean -f
+ sudo npm install -g n
+ sudo n stable
+ ```
+ 
+ * Yarn 1.6.0 (optional):
+ https://yarnpkg.com/en/docs/install/
+ 
+ ###Run the dev environment:
  * Go to `frontend` folder
  * run `npm install` or `yarn install`
  * run `npm run dev` or `yarn dev`

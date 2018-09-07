@@ -6,7 +6,6 @@ use Drupal\rest\Plugin\ResourceBase;
 use Drupal\rest\ResourceResponse;
 use Drupal\Core\Session\AccountProxyInterface;
 use Psr\Log\LoggerInterface;
-use Symfony\Component\Routing\RouteCollection;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -103,7 +102,7 @@ class TodoResource extends ResourceBase {
 
     // If we're trying to get a specific todo.
     if ($id != 'all') {
-        $query->condition('nid', $id);
+      $query->condition('nid', $id);
     }
 
     $result = $query->execute();

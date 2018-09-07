@@ -4,6 +4,7 @@ module:
   breakpoint: 0
   config: 0
   dblog: 0
+  devel: 0
   dvt_rest_api: 0
   dynamic_page_cache: 0
   field: 0

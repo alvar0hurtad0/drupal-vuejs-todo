@@ -2,7 +2,6 @@ import axios from 'axios';
 import './axiosInterceptor';
 
 export default {
-    // @todo this part is not really working fine.
     getToken(payload) {
         let data =JSON.stringify({
             name: payload.username,
@@ -23,6 +22,7 @@ export default {
                 localStorage.setItem('csrf_token', res.data.csrf_token);
                 localStorage.setItem('username', payload.username);
                 localStorage.setItem('auth_token', btoa(payload.username + ':' + payload.password));
+                // @todo: This redirect should be done by vue-router.
                 window.location.href = '/';
                 Promise.resolve(res.data);
             })

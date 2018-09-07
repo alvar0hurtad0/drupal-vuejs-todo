@@ -9,7 +9,7 @@ This project is based on [drupal-composer/drupal-project](https://github.com/dru
   (https://www.drupal.org/docs/8/system-requirements)
  * Copy `\example.settings.local.php` into `settings.local.php` and customize the values (at least related with database) 
  * Run `composer project-install`
- * Make all the changes required for your webserver to make `http://drupal-vue-todo.localhost` serve the `web` folder of this repo.
+ * Make all the changes required for your webserver to make `http://drupal-vuejs-todo.localhost` serve the `web` folder of this repo.
 
 ## Install frontend
  * Make sure you have node and yarn installed on your host
@@ -18,7 +18,7 @@ This project is based on [drupal-composer/drupal-project](https://github.com/dru
  * run `npm run dev` or `yarn dev`
 
 ## Troubleshooting
-### I can't serve the drupal in http://drupal-vue-todo.localhost
+### I can't serve the drupal in http://drupal-vuejs-todo.localhost
 Just change the {BASE_API_URL} here: https://github.com/alvar0hurtad0/drupal-vuejs-todo/blob/master/frontend/webpack.config.js#L91
 
 ### Yarn can not find install on Ubuntu

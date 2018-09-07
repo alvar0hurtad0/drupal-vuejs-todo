@@ -8,6 +8,10 @@ This project is based on [drupal-composer/drupal-project](https://github.com/dru
  * Make sure you have composer and all the stuff to run a drupal on you host. PHP 7.1 or higher is required
   (https://www.drupal.org/docs/8/system-requirements)
  * Copy `web/sites/default/example.settings.local.php` into `web/sites/default/settings.local.php` and customize the
+ ```
+ cp web/sites/default/example.settings.local.php web/sites/default/settings.local.php
+ vim web/sites/default/settings.local.php
+ ```
  values (at least related with database) 
  * Run `composer project-install`
  * Make all the changes required for your webserver to make `http://drupal-vuejs-todo.localhost` serve the `web` folder

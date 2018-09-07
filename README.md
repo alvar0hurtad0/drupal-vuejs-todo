@@ -26,6 +26,11 @@ This project is based on [drupal-composer/drupal-project](https://github.com/dru
    * user3/user3
    * user4/user4
    
+   For more info about the created default content, please check this link
+   https://github.com/alvar0hurtad0/drupal-vuejs-todo/tree/master/web/modules/custom/dvt_default_content/default_content
+   
+ * Admin user for backed is admin/admin
+ 
 ## Troubleshooting
 ### I can't serve the drupal in http://drupal-vuejs-todo.localhost
 Just change the {BASE_API_URL} here:

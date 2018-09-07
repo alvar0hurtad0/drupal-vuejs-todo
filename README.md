@@ -19,6 +19,13 @@ This project is based on [drupal-composer/drupal-project](https://github.com/dru
  * run `npm install` or `yarn install`
  * run `npm run dev` or `yarn dev`
 
+## Expected result after install the project
+ * 4 users are created (user/password):
+   * user1/user1 (with 3 todos)
+   * user2/user2 (with 1 todo)
+   * user3/user3
+   * user4/user4
+   
 ## Troubleshooting
 ### I can't serve the drupal in http://drupal-vuejs-todo.localhost
 Just change the {BASE_API_URL} here:

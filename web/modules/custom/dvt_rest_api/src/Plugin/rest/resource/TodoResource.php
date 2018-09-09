@@ -89,6 +89,9 @@ class TodoResource extends ResourceBase {
   /**
    * Responds to GET requests.
    *
+   * @param mixed $id
+   *   Node ID of the item to get or "all" for get all todos.
+   *
    * @return \Drupal\rest\ResourceResponse
    *   Rest response.
    */

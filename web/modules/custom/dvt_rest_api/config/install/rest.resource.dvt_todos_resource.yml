@@ -12,9 +12,10 @@ configuration:
   methods:
     - GET
     - POST
-    - PATCH
     - DELETE
+    - PATCH
   formats:
     - json
   authentication:
+    - basic_auth
     - cookie

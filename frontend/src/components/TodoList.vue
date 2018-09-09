@@ -23,7 +23,7 @@
             'todo-form': TodoForm,
         },
         methods: {
-            ...mapActions('Todos', ['getTodos', 'getToken']),
+            ...mapActions('Todos', ['getTodos']),
         },
         computed: {
             items() {

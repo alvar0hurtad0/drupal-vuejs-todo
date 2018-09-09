@@ -2,6 +2,7 @@ langcode: de
 status: true
 dependencies:
   module:
+    - basic_auth
     - dvt_rest_api
     - serialization
     - user

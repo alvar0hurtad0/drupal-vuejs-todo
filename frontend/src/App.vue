@@ -14,7 +14,7 @@
       </v-container>
     </v-content>
     <v-footer :fixed="true" app>
-      <span>drupal&vuejs rock!!!</span>
+      <span>drupal&amp;vuejs rock!!!</span>
     </v-footer>
   </v-app>
 </template>

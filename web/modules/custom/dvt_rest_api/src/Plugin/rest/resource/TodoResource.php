@@ -177,12 +177,10 @@ class TodoResource extends ResourceBase {
       'title' => $payload['title'],
       'field_done' => $payload['status'],
     ]);
-
     $node->save();
 
     // Build a response with the created node.
-    $response = new ResourceResponse($node);
-    return $response;
+    return new ResourceResponse($node);
   }
 
   /**

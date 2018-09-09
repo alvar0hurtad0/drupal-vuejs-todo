@@ -29,7 +29,7 @@
         },
 
         methods: {
-            ...mapActions(['addTodo']),
+            ...mapActions('Todos', ['addTodo']),
 
             inputHandler(input) {
                 this.text = input;

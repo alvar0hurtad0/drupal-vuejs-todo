@@ -24,7 +24,7 @@
             }
         },
         methods: {
-            ...mapActions(['removeTodo', 'toggleTodo']),
+            ...mapActions('Todos', ['removeTodo', 'toggleTodo']),
             handleCheckbox(){
                 this.toggleTodo({
                     "id": this.item.id,

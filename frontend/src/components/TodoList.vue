@@ -12,7 +12,7 @@
 </template>
 
 <script>
-    import { mapActions, mapGetters } from 'vuex';
+    import { mapActions } from 'vuex';
     import TodoListItem from './TodoListItem';
     import TodoForm  from './TodoForm';
 

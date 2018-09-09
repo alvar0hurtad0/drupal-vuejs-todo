@@ -8,7 +8,9 @@ This module defines the custom resources to manage application data.
 
 ### dvt_todos_resource
 ```
-GET all todos /api/v1/todos
+GET all todos /api/v1/todos/all
+
+GET a specific todo /api/v1/todos/{todo_id}
 
 POST a todo /api/v1/todos {"title": ' - - - - ',"status":true/false}
 

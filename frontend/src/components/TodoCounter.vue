@@ -1,7 +1,7 @@
 <template>
     <v-chip>
         <v-avatar> {{this.count}}</v-avatar>
-        Pendientes
+        pending
     </v-chip>
 </template>
 

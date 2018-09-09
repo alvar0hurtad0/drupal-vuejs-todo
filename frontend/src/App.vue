@@ -21,13 +21,11 @@
 
 <script>
     import TodoCounter  from './components/TodoCounter';
-    import TodoList  from './components/TodoList';
     import { mapActions } from 'vuex';
     import { mapState } from 'vuex';
 
     export default {
       components: {
-          'todo-list': TodoList,
           'todo-counter': TodoCounter,
       },
       data () {

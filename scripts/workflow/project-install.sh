@@ -9,10 +9,7 @@ composer install
 echo "Installing project..."
 cd web
 # Using ../vendor/bin/drush to ensure this script works out of the box.
-../vendor/bin/drush site-install minimal -y
-../vendor/bin/drush cset "system.site" uuid "alvar0hurtad0/drupal-vuejs-todo" -y
-../vendor/bin/drush config-import sync -y
-../vendor/bin/drush user-password admin --password=admin
+../vendor/bin/drush site-install minimal --config-dir=../config/sync --account-name=admin --account-pass=admin -y
 
 echo "Importing default content."
 ../vendor/bin/drush en dvt_default_content -y

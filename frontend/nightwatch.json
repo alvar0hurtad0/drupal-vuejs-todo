@@ -1,0 +1,34 @@
+{
+    "src_folders" : [
+        "./tests/nightwatch/tests/"
+    ],
+    "output_folder" : "./tests/nightwatch/reports",
+    "custom_commands_path" : "./tests/nightwatch/commands",
+    "custom_assertions_path" : "./tests/nightwatch/assertions",
+    "page_objects_path" : [
+        "./tests/nightwatch/pages/"
+    ],
+    "globals_path" : "./tests/nightwatch/data/global.js",
+    "test_settings" : {
+        "default" : {
+            "debugEnabled": false
+        },
+        "dev" : {
+            "launch_url" : "http://127.0.0.1:8080",
+            "selenium_port"  : 9515,
+            "selenium_host"  : "127.0.0.1",
+            "default_path_prefix" : "",
+            "screenshots" : {
+                "enabled" : true,
+                "on_failure": true,
+                "path" : "./tests/nightwatch/reports/screenshots/chrome"
+            },
+            "desiredCapabilities": {
+                "browserName": "chrome",
+                "chromeOptions": {
+                    "args": []
+                }
+            }
+        }
+    }
+}

@@ -4,7 +4,7 @@
       <v-toolbar-title v-text="title"></v-toolbar-title>
       <v-spacer ></v-spacer>
       <todo-counter v-if="User.isLoggedIn"></todo-counter>
-      <v-btn to="Logout" fab small v-if="User.isLoggedIn">
+      <v-btn to="Logout" fab small v-if="User.isLoggedIn" id="logout-link">
         <v-icon>logout</v-icon>
       </v-btn>
     </v-toolbar>

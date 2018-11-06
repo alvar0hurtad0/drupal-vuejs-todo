@@ -1,7 +1,7 @@
 <template>
     <v-layout row justify-center>
         <v-dialog v-model="dialog" persistent max-width="500px">
-            <v-card>
+            <v-card id="login-form">
                 <v-card-title>
                     <span class="headline">Login</span>
                 </v-card-title>
@@ -31,7 +31,7 @@
                 </v-card-text>
                 <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn color="blue darken-1" flat @click.stop="sendHandler" value="password">LOGIN</v-btn>
+                    <v-btn color="blue darken-1" flat @click.stop="sendHandler" value="submit">LOGIN</v-btn>
                 </v-card-actions>
             </v-card>
         </v-dialog>

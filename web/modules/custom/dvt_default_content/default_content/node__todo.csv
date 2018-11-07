@@ -3,3 +3,6 @@ todo_1,Buy milk,user_1,1
 todo_2,Do the Drupal and Vuejs talk,user_1,0
 todo_3,Important thing,user_1,0
 todo_4,Party time,user_2,0
+todo_5,short,user_2,1
+todo_6,"A very very very long item with a lot of words on the body so you can imagine what happens if some of them are longer than usual. Good to know, right? So lets see if everything works as expected",user_2,1
+todo_7,<script>alert('xss in title')</script>,user_2,1
